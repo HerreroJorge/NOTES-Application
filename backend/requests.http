@@ -1,0 +1,27 @@
+###
+POST http://localhost:9000/api/notes HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Nota 2",
+    "body": "cuerpo de la segunda nota"
+}
+
+###
+GET http://localhost:9000/api/notes HTTP/1.1
+
+###
+GET http://localhost:9000/api/notes/65fc83941e7678c4c257a8d6 HTTP/1.1
+
+###
+PUT http://localhost:9000/api/notes/65fc83941e7678c4c257a8d6 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Nota 2",
+    "body": "cuerpo ACTUALIZADO de la segunda nota"
+}
+
+###
+DELETE http://localhost:9000/api/notes/65fc83941e7678c4c257a8d6 HTTP/1.1
+Content-Type: application/json
