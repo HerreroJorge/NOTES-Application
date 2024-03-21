@@ -13,7 +13,6 @@
 
     .x-button{
       opacity: 1;
-      transition-delay: 0.1s;
     }
   }
 
@@ -46,10 +45,10 @@
 
 .x-button{
   position: absolute;
-  top: 12px;
-  right: 12px;
-  height: 34px;
-  width: 34px;
+  top: 20%;
+  right: -60px;
+  height: 60%;
+  width: 50px;
   background-color: $light-red;
   border-radius: 4px;
   display: flex;
@@ -57,10 +56,13 @@
   justify-content: center;
   opacity: 0;
   transition: opacity 0.2s ease-out;
+  transition-delay: 0.5s;
+  box-shadow: 0px 0px 0px 4px rgba(black, 0.068);
 
   i{
     color: rgb(147, 42, 42);
     transition: color 0.2s ease-out;
+    font-size: 25px;
   }
 
   &:hover{

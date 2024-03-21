@@ -1,9 +1,11 @@
-import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { NotesService } from '../shared/notes.service';
 
 @Component({
   selector: 'app-note-card',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './note-card.component.html',
   styleUrl: './note-card.component.scss'
 })
@@ -11,11 +13,15 @@ export class NoteCardComponent implements OnInit{
 
   @Input('title') title!: string;
   @Input('body') body!: string;
+  @Input() link!: string;
+
+  @Output('delete') deleteEvent: EventEmitter<void> = new EventEmitter<void>();
 
   @ViewChild('truncator') truncator!: ElementRef<HTMLElement>;
   @ViewChild('bodyText') bodyText!: ElementRef<HTMLElement>;
 
-  constructor(private renderer: Renderer2){}
+  constructor(private renderer: Renderer2,
+    private notesService: NotesService){}
 
   ngOnInit(){
     // setTimeout(() => {
@@ -33,5 +39,9 @@ export class NoteCardComponent implements OnInit{
     //     console.log('mkfnjefnwuqnn')
     //   }
     // }, 0);
+  }
+
+  deleteButton(){
+    this.deleteEvent.emit()
   }
 }
