@@ -1,11 +1,13 @@
 import { Component, ElementRef, EventEmitter, Input, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NotesService } from '../shared/notes.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-note-card',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, HttpClientModule],
+  providers: [NotesService],
   templateUrl: './note-card.component.html',
   styleUrl: './note-card.component.scss'
 })
